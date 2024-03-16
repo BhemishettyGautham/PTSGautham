@@ -29,22 +29,21 @@ public class TimeEntryPageTest extends BaseTest {
 	
 	@Test(priority = 3)
 	public void timeEntryPageProjectsCountTest() {
+		timeEntryPage.clickProjectBtn();
 		Assert.assertTrue(timeEntryPage.getProjectsListCount()>0);
 	}
 	
 	@Test(priority = 4)
 	public void timeEntryPageActivitiesCountTest() {
-		Assert.assertTrue(timeEntryPage.getActivitesListCount(AppConstants.TIMEENTRY_PAGE_PROJECT_NAME)>0);
+		timeEntryPage.selectProject(AppConstants.TIMEENTRY_PAGE_PROJECT_NAME);
+		timeEntryPage.clickActivity();
+		Assert.assertTrue(timeEntryPage.getActivitesListCount()>0);
 	}
 	
 	@Test(priority = 5)
-	public void timeEntryPageActivitySelectTest() {
-		timeEntryPage.selectActivity(AppConstants.TIMEENTRY_PAGE_PROJECT_NAME, AppConstants.TIMEENTRY_PAGE_ACTIVITY_NAME);
-	}
-	
-	@Test(priority = 6)
 	public void timeEntriesAddTest() {
-		timeEntryPage.enterTimeEntry(AppConstants.TIMEENTRY_PAGE_PROJECT_NAME, AppConstants.TIMEENTRY_PAGE_ACTIVITY_NAME);
+		timeEntryPage.selectActivity(AppConstants.TIMEENTRY_PAGE_ACTIVITY_NAME);
+		timeEntryPage.enterTimeEntry();
 		timeEntryPage.saveTimeEntry();
 	}
 

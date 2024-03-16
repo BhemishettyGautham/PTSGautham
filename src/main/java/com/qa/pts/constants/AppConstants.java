@@ -19,7 +19,7 @@ public class AppConstants {
 	
 	public static final String TIMEENTRY_PAGE_TITLE_VALUE = "Time Entries";
 	public static final String TIMEENTRY_PAGE_URL_FRACTION_VALUE = "https://devtimesheets.mroads.com/time-entries";
-	public static final String TIMEENTRY_PAGE_PROJECT_NAME = "Project 2";
+	public static final String TIMEENTRY_PAGE_PROJECT_NAME = "Gautham Test Project";
 	public static final String TIMEENTRY_PAGE_ACTIVITY_NAME = "Testing";
 
 }

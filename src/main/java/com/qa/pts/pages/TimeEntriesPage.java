@@ -22,6 +22,7 @@ public class TimeEntriesPage {
 	private By addNotesBtn = By.xpath("//span[text()=\"Add Notes\"]//parent::button");
 	private By notesText = By.xpath("//textarea[@placeholder]");
 	private By saveBtn = By.xpath("//button[text()=\"Save\"]");
+	private By submitBtn = By.xpath("//button[text()=\"Submit\"]");
 
 	public TimeEntriesPage(WebDriver driver) {
 		this.driver = driver;
@@ -41,33 +42,37 @@ public class TimeEntriesPage {
 	}
 	
 	public int getProjectsListCount() {
-		eleUtil.waitForElementPresence(addProjectBtn, AppConstants.DEFAULT_SHORT_TIME_OUT).click();
 		int count = eleUtil.waitForElementsVisible(projectsList, AppConstants.DEFAULT_MEDIUM_TIME_OUT).size();
 		System.out.println("Count of Projects are: " + count);
 		return count;
 	}
 	
-	public void selectProject(String projectName) {
+	public void clickProjectBtn() {
 		eleUtil.waitForElementPresence(addProjectBtn, AppConstants.DEFAULT_MEDIUM_TIME_OUT).click();
+	}
+	
+	public void selectProject(String projectName) {
 		By projectLocator = By.xpath("//h6[text()='"+projectName+"']/parent::div/parent::li");
 		eleUtil.waitForElementVisible(projectLocator, AppConstants.DEFAULT_MEDIUM_TIME_OUT).click();
 	}
 	
-	public int getActivitesListCount(String projectName) {
-		selectProject(projectName);
+	public void clickActivity() {
 		eleUtil.waitForElementPresence(selectActivityBtn, AppConstants.DEFAULT_SHORT_TIME_OUT).click();
-		return eleUtil.waitForElementsVisible(activities, AppConstants.DEFAULT_MEDIUM_TIME_OUT).size();
 	}
 	
-	public void selectActivity(String projectName, String activityName) {
-		selectProject(projectName);
-		eleUtil.waitForElementPresence(selectActivityBtn, AppConstants.DEFAULT_SHORT_TIME_OUT).click();
+	public int getActivitesListCount() {
+		int count = eleUtil.waitForElementsVisible(activities, AppConstants.DEFAULT_MEDIUM_TIME_OUT).size();
+		System.out.println("Count of Activites are: " + count);
+		return count;
+	}
+	
+	
+	public void selectActivity(String activityName) {
 		By activityLocator = By.xpath("//li[text()='"+activityName+"']");
 		eleUtil.waitForElementVisible(activityLocator, AppConstants.DEFAULT_MEDIUM_TIME_OUT).click();
 	}
 	
-	public void enterTimeEntry(String pName, String aName) {
-		selectActivity(pName, aName);
+	public void enterTimeEntry() {
 		for(WebElement e:eleUtil.getElements(timeEntry)) {
 			if(e.isEnabled()) {
 				e.click();
