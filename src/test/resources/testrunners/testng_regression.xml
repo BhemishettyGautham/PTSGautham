@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="PannaTimeSheets App Test Regression Suite" thread-count="3"
-	parallel="tests" verbose="4">
+<suite name="PannaTimeSheets App Test Regression Suite"  verbose="4">
 	
 	
 	<listeners>
@@ -21,7 +20,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Home Page Test">
+	<test name="Home Page Test">
 		<classes>
 			<class name="com.qa.pts.tests.HomePageTest" />
 		</classes>
@@ -31,7 +30,13 @@
 		<classes>
 			<class name="com.qa.pts.tests.TimeEntryPageTest" />
 		</classes>
-	</test>-->
+	</test>
+	
+	<test name="Users Page Test">
+		<classes>
+			<class name="com.qa.pts.tests.UsersPageTest" />
+		</classes>
+	</test>
 
 	
 

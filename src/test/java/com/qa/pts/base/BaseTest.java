@@ -11,6 +11,7 @@ import com.qa.pts.factory.DriverFactory;
 import com.qa.pts.pages.HomePage;
 import com.qa.pts.pages.LoginPage;
 import com.qa.pts.pages.TimeEntriesPage;
+import com.qa.pts.pages.UsersPage;
 
 public class BaseTest {
 	
@@ -20,6 +21,7 @@ public class BaseTest {
 	protected LoginPage loginPage;
 	protected HomePage homePage;
 	protected TimeEntriesPage timeEntryPage;
+	protected UsersPage usersPage;
 	
 	@BeforeTest
 	public void setup() {

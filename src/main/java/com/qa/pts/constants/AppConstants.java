@@ -21,5 +21,9 @@ public class AppConstants {
 	public static final String TIMEENTRY_PAGE_URL_FRACTION_VALUE = "https://devtimesheets.mroads.com/time-entries";
 	public static final String TIMEENTRY_PAGE_PROJECT_NAME = "Gautham Test Project";
 	public static final String TIMEENTRY_PAGE_ACTIVITY_NAME = "Testing";
+	
+	public static final String USERS_PAGE_TITLE_VALUE = "User Management";
+	public static final String USERS_PAGE_URL_FRACTION_VALUE = "https://panna-auth.mroads.com/manage-users";
+	public static final String CREATE_USER_SHEET_NAME = "userCreate";
 
 }

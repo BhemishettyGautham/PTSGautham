@@ -18,6 +18,7 @@ public class HomePage {
 	private By logoutLink = By.xpath("//div[@role=\"button\"]//p[text()=\"Dashboard\"]");
 	private By homePageHeaders = By.xpath("//div[@role=\"button\"]//p");
 	private By timesheetsTab = By.xpath("//h6[text()=\"Timesheets\"]/parent::div");
+	private By usersBtn = By.xpath("//p[text()=\"Users\"]/parent::div/parent::div");
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -66,6 +67,13 @@ public class HomePage {
 		}
 		
 	}
+	
+	public UsersPage goToUsersTab() {
+    	driver.findElement(usersBtn).click();
+    	String title = driver.getTitle();
+    	System.out.println(title);
+    	return new UsersPage(driver);
+    }
 	
 	
 
