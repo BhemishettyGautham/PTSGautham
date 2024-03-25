@@ -25,5 +25,6 @@ public class AppConstants {
 	public static final String USERS_PAGE_TITLE_VALUE = "User Management";
 	public static final String USERS_PAGE_URL_FRACTION_VALUE = "https://panna-auth.mroads.com/manage-users";
 	public static final String CREATE_USER_SHEET_NAME = "userCreate";
+	public static final String USERS_PAGE_PARTIAL_SUCCESS_MSG = "created sucessfully";
 
 }

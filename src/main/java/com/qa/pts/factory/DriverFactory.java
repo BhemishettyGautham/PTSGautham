@@ -12,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
@@ -38,9 +39,13 @@ public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 		System.out.println("Browser name is: " + browserName);
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\SeleniumJars\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "C:\\SeleniumJars\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 			//driver = new ChromeDriver(optionsManager.getChromeOptions());
 			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+		}
+		
+		else if(browserName.equalsIgnoreCase("firefox")) {
+			tlDriver.set(new FirefoxDriver(optionsManager.getFireFoxOptions()));
 		}
 		
 		else if(browserName.equalsIgnoreCase("edge")) {

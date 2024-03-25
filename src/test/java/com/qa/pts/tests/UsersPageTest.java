@@ -1,5 +1,8 @@
 package com.qa.pts.tests;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -76,6 +79,31 @@ public class UsersPageTest extends BaseTest {
 			String jobTitle, String dept, String role, String empCode) {
 		usersPage.createUser(fName, lName, phNum, emailId, dobY, dobM, dobD, dojY, dojM, dojD,
 				jobTitle, dept, role, empCode);
+		Assert.assertTrue(usersPage.getSuccessMsg().contains(AppConstants.USERS_PAGE_PARTIAL_SUCCESS_MSG));
 	}
-
+	
+	@DataProvider
+	public Object[][] getUserUpdateTestData() {
+		Map<String, String> updatedFields = new HashMap<>();
+		updatedFields.put("First Name", "John");
+		updatedFields.put("Last Name", "John");
+		return new Object[][] { { updatedFields } };
+		
+	}
+	
+	@Test(priority = 6, dataProvider = "getUserUpdateTestData")
+	public void editUserTest(Map<String, String> updatedFields) {
+		usersPage.searchUser("gautham auto nine");
+		usersPage.editBtnClick("gautham auto nine");
+		usersPage.updateUser(updatedFields);
+		Assert.assertTrue(usersPage.getSuccessMsg().contains(AppConstants.USERS_PAGE_PARTIAL_SUCCESS_MSG));
+	}
+	
+	@Test(priority = 7)
+	public void deleteUserTest() { 
+		usersPage.searchUser("gauthamJohn auto nineJohn");
+		usersPage.deleteUser("gauthamJohn auto nineJohn");
+		Assert.assertTrue(usersPage.getSuccessMsg().contains(AppConstants.USERS_PAGE_PARTIAL_SUCCESS_MSG));
+	}
+	
 }
